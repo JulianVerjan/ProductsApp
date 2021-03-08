@@ -1,8 +1,7 @@
-package com.products.network.di
+package com.products.test.network.di
 
-import com.products.data.di.modules.NetworkModule
+import com.products.network.NetworkModule
 import io.mockk.mockk
-import okhttp3.logging.HttpLoggingInterceptor
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -13,30 +12,20 @@ class NetworkModuleTest {
 
     @Before
     fun setUp() {
-        networkModule = NetworkModule()
-    }
-
-    @Test
-    fun verifyProvidedHttpLoggingInterceptor() {
-        val interceptor = networkModule.provideHttpLoggingInterceptor()
-        assertEquals(HttpLoggingInterceptor.Level.BODY, interceptor.level)
+        networkModule = NetworkModule
     }
 
     @Test
     fun verifyProvidedHttpClient() {
-        val interceptor = mockk<HttpLoggingInterceptor>()
-        val httpClient = networkModule.provideHttpClient(interceptor)
-
-        assertEquals(1, httpClient.interceptors.size)
-        assertEquals(interceptor, httpClient.interceptors.first())
+        val httpClient = networkModule.provideHttpClient()
+        assertEquals(20000, httpClient.connectTimeoutMillis)
     }
 
     @Test
     fun verifyProvidedRetrofitBuilder() {
-        val retrofit = networkModule.provideRetrofitBuilder()
-        assertEquals(
-            "https://api.blockchain.info/charts/",
-            retrofit.baseUrl().toUrl().toString()
+        val retrofit = networkModule.provideRetrofitBuilder(mockk())
+        assertEquals("http://mobcategories.s3-website-eu-west-1.amazonaws.com/",
+                retrofit.baseUrl().toUrl().toString()
         )
     }
 }

@@ -33,7 +33,7 @@ object DataModule {
 
     @Singleton
     @Provides
-    fun provideMovieUseCase(
+    fun provideCatalogUseCase(
         catalogRepository: CatalogRepository
     ): FetchCatalogUseCase {
         return FetchCatalogUseCase(catalogRepository)

@@ -21,6 +21,7 @@ import com.products.buildsrc.Libs.NAVIGATION_LAYOUT
 import com.products.buildsrc.Libs.NAVIGATION_UI_LIB
 import com.products.buildsrc.Libs.RECYCLER_VIEW
 import com.products.buildsrc.TestLibs.ARCH_CORE
+import com.products.buildsrc.TestLibs.COROUTINES_TEST
 import com.products.buildsrc.TestLibs.JUNIT_LIB
 import com.products.buildsrc.TestLibs.MOCK
 import com.products.buildsrc.TestLibs.MOCKITO_INLINE
@@ -114,4 +115,5 @@ dependencies {
     testImplementation(MOCK)
     testImplementation(ARCH_CORE)
     testImplementation("org.mockito:mockito-inline:3.8.0")
+    testImplementation(COROUTINES_TEST)
 }

@@ -35,6 +35,7 @@ object Versions {
     const val MOCK_VERSION = "1.10.2"
     const val ASSERT_VERSION = "3.17.2"
     const val MOCK_WEB_SERVER_VERSION = "4.9.0"
+    const val COROUTINES_TEST_VERSION = "1.4.3"
     const val DATABINDING_VERSION = "3.1.4"
     const val LOGIN_INTERCEPTOR_VERSION = "4.9.0"
 
@@ -124,4 +125,5 @@ object TestLibs {
     const val ARCH_CORE = "androidx.arch.core:core-testing:${Versions.ARCH_CORE_VERSION}"
     const val MOCK_WEB_SERVER =
         "com.squareup.okhttp3:mockwebserver:${Versions.MOCK_WEB_SERVER_VERSION}"
+    const val COROUTINES_TEST = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.COROUTINES_TEST_VERSION}"
 }

@@ -9,6 +9,7 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import java.util.concurrent.TimeUnit
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -17,6 +18,9 @@ object NetworkModule {
     @Provides
     fun provideHttpClient(): OkHttpClient {
         val clientBuilder = OkHttpClient.Builder()
+            .connectTimeout(20, TimeUnit.SECONDS)
+            .writeTimeout(20, TimeUnit.SECONDS)
+            .readTimeout(20, TimeUnit.SECONDS)
         return clientBuilder.build()
     }
 
@@ -30,6 +34,6 @@ object NetworkModule {
             .build()
 
     @Provides
-    fun provideMovieService(retrofit: Retrofit): CatalogService =
+    fun provideCatalogService(retrofit: Retrofit): CatalogService =
         retrofit.create(CatalogService::class.java)
 }

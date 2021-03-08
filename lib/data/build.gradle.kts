@@ -1,14 +1,13 @@
 import com.products.buildsrc.Apps
 import com.products.buildsrc.Apps.COMPILE_SDK
 import com.products.buildsrc.Apps.androidTestInstrumentation
-import com.products.buildsrc.Libs.CORE
 import com.products.buildsrc.Libs.CORE_HILT
 import com.products.buildsrc.Libs.HILT_ANDROID_COMPILER
 import com.products.buildsrc.Libs.HILT_COMPILER
-import com.products.buildsrc.TestLibs.ARCH_CORE
-import com.products.buildsrc.TestLibs.FRAGMENT_TEST
+import com.products.buildsrc.TestLibs.COROUTINES_TEST
 import com.products.buildsrc.TestLibs.JUNIT_LIB
 import com.products.buildsrc.TestLibs.MOCK
+import com.products.buildsrc.TestLibs.MOCKITO_KOTLIN_LIBRARY
 import com.products.buildsrc.TestLibs.MOCK_WEB_SERVER
 import com.products.buildsrc.TestLibs.RULES
 import com.products.buildsrc.TestLibs.RUNNER
@@ -61,17 +60,16 @@ android {
 dependencies {
     implementation(project(":lib:network"))
     implementation(project(":lib:model"))
-    implementation(CORE)
     implementation(CORE_HILT)
+    implementation(MOCKITO_KOTLIN_LIBRARY)
     kapt(HILT_COMPILER)
     kapt(HILT_ANDROID_COMPILER)
 
     testImplementation(JUNIT_LIB)
     testImplementation(MOCK)
-    testImplementation(ARCH_CORE)
     testImplementation(RULES)
     testImplementation(RUNNER)
-    testImplementation(FRAGMENT_TEST)
     testImplementation(MOCK_WEB_SERVER)
     testImplementation(project(TEST_UTILS))
+    testImplementation(COROUTINES_TEST)
 }

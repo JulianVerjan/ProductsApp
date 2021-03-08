@@ -3,21 +3,17 @@ import com.products.buildsrc.Apps.COMPILE_SDK
 import com.products.buildsrc.Apps.androidTestInstrumentation
 import com.products.buildsrc.BuildType.Companion.DEBUG
 import com.products.buildsrc.BuildType.Companion.RELEASE
-import com.products.buildsrc.Libs.CORE
 import com.products.buildsrc.Libs.CORE_HILT
-import com.products.buildsrc.Libs.DATABINDING_COMPILER
 import com.products.buildsrc.Libs.HILT_ANDROID_COMPILER
 import com.products.buildsrc.Libs.HILT_COMPILER
 import com.products.buildsrc.Libs.LOGIN_INTERCEPTOR
 import com.products.buildsrc.Libs.MOSHI
 import com.products.buildsrc.Libs.RETROFIT
 import com.products.buildsrc.Libs.RETROFIT_CONVERTER
-import com.products.buildsrc.TestLibs.ARCH_CORE
-import com.products.buildsrc.TestLibs.FRAGMENT_TEST
+import com.products.buildsrc.TestLibs.COROUTINES_TEST
 import com.products.buildsrc.TestLibs.JUNIT_LIB
 import com.products.buildsrc.TestLibs.MOCK
 import com.products.buildsrc.TestLibs.MOCK_WEB_SERVER
-import com.products.buildsrc.TestLibs.RULES
 import com.products.buildsrc.TestLibs.RUNNER
 import com.products.buildsrc.TestLibs.TEST_UTILS
 
@@ -92,9 +88,7 @@ dependencies {
     api(RETROFIT)
     implementation(project(":commons:base"))
     implementation(project(":lib:model"))
-    implementation(CORE)
     implementation(RETROFIT_CONVERTER)
-    kapt(DATABINDING_COMPILER)
     implementation(CORE_HILT)
     implementation(MOSHI)
 
@@ -103,10 +97,8 @@ dependencies {
 
     testImplementation(JUNIT_LIB)
     testImplementation(MOCK)
-    testImplementation(ARCH_CORE)
-    testImplementation(RULES)
     testImplementation(RUNNER)
-    testImplementation(FRAGMENT_TEST)
     testImplementation(MOCK_WEB_SERVER)
     testImplementation(project(TEST_UTILS))
+    testImplementation(COROUTINES_TEST)
 }
