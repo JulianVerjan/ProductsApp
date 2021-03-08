@@ -1,17 +1,18 @@
 package com.products.test.data.repositories
 
 import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.whenever
 import com.products.data.datasource.CatalogRemoteDataSource
 import com.products.data.repository.CatalogRepository
-import com.products.network.service.CatalogService
-import io.mockk.MockKAnnotations
-import io.mockk.impl.annotations.MockK
-import com.nhaarman.mockitokotlin2.whenever
 import com.products.network.model.NetworkResponse
 import com.products.network.model.mapper.RepositoryResult
 import com.products.network.model.reponse.CategoryNetworkResponse
 import com.products.network.model.reponse.ProductNetworkResponse
 import com.products.network.model.reponse.SalePriceNetworkResponse
+import com.products.network.service.CatalogService
+import io.mockk.MockKAnnotations
+import io.mockk.impl.annotations.MockK
+import java.io.IOException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -22,7 +23,6 @@ import org.junit.After
 import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Test
-import java.io.IOException
 
 @ExperimentalCoroutinesApi
 class CatalogRepositoryTest {
@@ -80,7 +80,7 @@ class CatalogRepositoryTest {
     fun getCatalogApiError() {
         testScope.launch {
             whenever(catalogService.fetchCategories())
-                .thenReturn(NetworkResponse.ApiError("Error",400))
+                .thenReturn(NetworkResponse.ApiError("Error", 400))
             val response = catalogRepository.fetchCatalog()
             assertNotNull(response)
             assert(response is RepositoryResult.Fail<*>)
@@ -97,5 +97,4 @@ class CatalogRepositoryTest {
             assert(response is RepositoryResult.Exception)
         }
     }
-
 }

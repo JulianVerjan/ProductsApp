@@ -46,7 +46,6 @@ class CatalogViewModelTest {
         )
     )
 
-
     @Before
     fun setUp() {
         Dispatchers.setMain(dispatcher)

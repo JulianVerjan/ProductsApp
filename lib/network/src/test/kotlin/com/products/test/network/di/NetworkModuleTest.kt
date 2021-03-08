@@ -24,8 +24,9 @@ class NetworkModuleTest {
     @Test
     fun verifyProvidedRetrofitBuilder() {
         val retrofit = networkModule.provideRetrofitBuilder(mockk())
-        assertEquals("http://mobcategories.s3-website-eu-west-1.amazonaws.com/",
-                retrofit.baseUrl().toUrl().toString()
+        assertEquals(
+            "http://mobcategories.s3-website-eu-west-1.amazonaws.com/",
+            retrofit.baseUrl().toUrl().toString()
         )
     }
 }

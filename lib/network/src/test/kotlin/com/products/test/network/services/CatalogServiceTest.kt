@@ -7,8 +7,8 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.TestCoroutineScope
-import kotlinx.coroutines.test.setMain
 import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.setMain
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import okio.buffer
@@ -62,10 +62,10 @@ class BitcoinServiceServiceTest {
     fun responseCatalogCode200() {
         enqueueResponse(MockResponses.GetCatalogInfo.STATUS_200)
         testScope.launch {
-            val response =  service.fetchCategories()
+            val response = service.fetchCategories()
             assertEquals(
-                    "36802",
-                    response.toRepositoryResult { it.first().id }
+                "36802",
+                response.toRepositoryResult { it.first().id }
             )
         }
     }
@@ -74,7 +74,7 @@ class BitcoinServiceServiceTest {
     fun responseCatalogCode400() {
         enqueueResponse(MockResponses.GetCatalogInfo.STATUS_404)
         testScope.launch {
-            val response =  service.fetchCategories()
+            val response = service.fetchCategories()
             assertEquals("not-found", response)
             assertNull(response)
         }
