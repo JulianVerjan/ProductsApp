@@ -29,7 +29,7 @@ object MockResponses {
 }
 
 @ExperimentalCoroutinesApi
-class BitcoinServiceServiceTest {
+class CatalogServiceServiceTest {
 
     private val dispatcher = TestCoroutineDispatcher()
     private val testScope = TestCoroutineScope(dispatcher)
