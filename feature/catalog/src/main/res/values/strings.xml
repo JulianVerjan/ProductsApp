@@ -1,0 +1,11 @@
+<resources>
+    <string name="snack_bar_empty_message">There is no content to show</string>
+    <string name="snack_bar_error_message">Something went wrong</string>
+    <string name="error_animation_path">lottie_animations/network_error.json</string>
+    <string name="loading_animation_path">lottie_animations/loading_ape.json</string>
+    <string name="empty_animation_path">lottie_animations/bag_error.json</string>
+
+    <string name="error">Something went wrong!!!</string>
+    <string name="catalog_title">Catalog App</string>
+
+</resources>
