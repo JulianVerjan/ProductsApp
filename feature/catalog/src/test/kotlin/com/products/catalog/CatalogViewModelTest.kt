@@ -1,4 +1,4 @@
-package com.com.catalog
+package com.products.catalog
 
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
